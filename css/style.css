@@ -136,11 +136,12 @@ a:hover {
 .activity a {
     display: inline-block;
     margin: 0 1rem;
+    max-width: 300px;
 }
 
 .activity img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     object-fit: cover;
@@ -360,10 +361,6 @@ footer p {
         padding: 2rem 1rem;
     }
 
-    .activity img {
-        width: 80px;
-        height: 80px;
-    }
 
     .gallery {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -412,11 +409,6 @@ footer p {
         padding: 1.5rem 1rem;
     }
 
-    .activity img {
-        width: 70px;
-        height: 70px;
-        margin: 0.5rem;
-    }
 
     .gallery {
         grid-template-columns: 1fr;
