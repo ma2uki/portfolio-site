@@ -1,0 +1,442 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Typography */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #222;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+}
+
+p, span {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+    border: 4px solid white;
+    object-fit: cover;
+}
+
+.profile h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.profile span {
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.about-me {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.skills {
+    font-size: 0.95rem;
+    opacity: 0.95;
+    margin-top: 1rem;
+}
+
+/* Activity Section */
+.activity {
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.activity h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.activity h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.activity > span {
+    display: block;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.activity {
+    text-align: center;
+}
+
+.activity a {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.activity img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+}
+
+.activity img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Section */
+.gallery {
+    padding: 3rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.gallery h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.game-gallery,
+.web-gallery {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.game-gallery h2,
+.web-gallery h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 1rem;
+}
+
+.carousel-item {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-item a {
+    width: 100%;
+    max-width: 500px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* Contact Section */
+.contact {
+    padding: 3rem 1rem;
+    background-color: #f0f0f0;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact span {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.contact a {
+    display: inline-block;
+    margin: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.contact img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.contact a:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #0099ff;
+    margin: 0 1rem;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #33b1ff;
+}
+
+footer p {
+    margin: 1rem 0;
+    color: #ddd;
+}
+
+.copyright {
+    display: block;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile {
+        padding: 2rem 1rem;
+    }
+
+    .profile img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile h1 {
+        font-size: 2rem;
+    }
+
+    .profile span {
+        font-size: 0.95rem;
+    }
+
+    .activity,
+    .gallery,
+    .contact {
+        padding: 2rem 1rem;
+    }
+
+    .activity img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+
+    .gallery img {
+        height: 150px;
+    }
+
+    footer a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    .profile {
+        padding: 1.5rem 1rem;
+    }
+
+    .profile img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile h1 {
+        font-size: 1.5rem;
+    }
+
+    .profile span {
+        font-size: 0.9rem;
+    }
+
+    .activity,
+    .gallery,
+    .contact {
+        padding: 1.5rem 1rem;
+    }
+
+    .activity img {
+        width: 70px;
+        height: 70px;
+        margin: 0.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+        height: 200px;
+    }
+
+    .contact img {
+        width: 60px;
+        height: 60px;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+    }
+
+    footer a {
+        margin: 0 0.5rem;
+        display: inline-block;
+    }
+}

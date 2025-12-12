@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Site</title>
+    <link rel="icon" href="./assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <section class="profile">
+        <img src="./assets/image/icon.png" alt="">
+        <h1>yuki</h1>
+        <span class="about-me">広島県在住の２児の父です👨‍👩‍ 職業はエンジニア🧑‍💻
+            <br>趣味は魚釣り。広島大学教育学部OB。
+        </span>
+        <span class="skills">Full-Stack Developer
+            <br>Full-Stack Web Developer.
+            <br>I build modern, end-to-end web applications—from UI design to server logic.
+
+            <br>Primary Stack:
+            <br>- Front-end: Vue.js, Vuetify
+            <br>- Back-end: C#
+            <br>- Others: HTML, CSS, JavaScript (Personal projects include responsive sites and simple games.)
+        </span>
+    </section>
+
+    <section class="activity">
+        <h1>activity</h1>
+        <span>最新のプライベートワークはInstagramをチェック</span>
+        <a href="https://www.instagram.com/yuki834363/">
+            <img src="./assets/image/insta.png" alt="">
+        </a>
+        <span>日常の投稿はXで発信📱</span>
+        <a href="https://x.com/matsu777kz">
+            <img src="./assets/image/x.png" alt="">
+        </a>
+    </section>
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="./js/main.js"></script>
+
+    <section class="gallery">
+        <div class="game-gallery">
+            <h2>Game Center</h2>
+            <div class="carousel">
+                <div class="carousel-container" data-carousel="games">
+                    <div class="carousel-item">
+                        <a href="https://ma2uki.github.io/stone-game/">
+                            <img src="./assets/image/stone-game.png" alt="Stone Game">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://ma2uki.github.io/marubatsu-game/">
+                            <img src="./assets/image/marubatsu-game.png" alt="Marubatsu Game">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://ma2uki.github.io/eawase-game/">
+                            <img src="./assets/image/eawase-game.png" alt="Eawase Game">
+                        </a>
+                    </div>
+                </div>
+                <div class="carousel-dots" data-carousel-dots="games">
+                    <span class="carousel-dot active" data-index="0"></span>
+                    <span class="carousel-dot" data-index="1"></span>
+                    <span class="carousel-dot" data-index="2"></span>
+                </div>
+                <button class="carousel-btn carousel-prev" data-carousel-prev="games">❮</button>
+                <button class="carousel-btn carousel-next" data-carousel-next="games">❯</button>
+            </div>
+        </div>
+
+        <div class="web-gallery">
+            <h2>Web Gallery</h2>
+            <div class="carousel">
+                <div class="carousel-container" data-carousel="web">
+                    <div class="carousel-item">
+                        <a href="https://ma2uki.github.io/bible-aka/">
+                            <img src="./assets/image/webpage.png" alt="Bible Aka">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact">
+        <span> 
+            ポートフォリオをご覧いただき、ありがとうございました！
+            <br>yukiの技術や作品についてご意見・ご感想があれば、ぜひお聞かせください。単なる感想でも構いません。
+            <br>連絡は、X（旧Twitter）またはInstagramのダイレクトメッセージ（DM）で受け付けています。
+        </span>
+        <a href="https://www.instagram.com/yuki834363?igsh=OGQ5ZDc2ODk2ZA==">
+            <img src="./assets/image/icon1.png" alt="Instagram">
+        </a>
+        <a href="https://x.com/matsu777kz?s=21&t=4Tziq7vr4hZU3lMPwlmKHw">
+            <img src="./assets/image/icon2.png" alt="X">
+        </a>
+        
+    </section>
+
+    <footer class="footer-link">
+        <p>
+                <a href="https://www.instagram.com/yuki834363?igsh=OGQ5ZDc2ODk2ZA==" target="_blank" rel="noopener" title="Instagram">
+                    instagram<!-- <img src="images/icon1.png" alt="Instagram" style="height:2.2rem; width:2.2rem; display:inline-block;"> -->
+                </a>
+                <a href="https://x.com/matsu777kz?s=21&t=4Tziq7vr4hZU3lMPwlmKHw" target="_blank" rel="noopener" title="X">
+                    X<!-- <img src="images/icon2.png" alt="X" style="height:2.2rem; width:2.2rem; display:inline-block;"> -->
+                </a>
+                <a href="https://ma2uki.blogspot.com/?m=1" target="_blank" rel="noopener" title="Blogger">
+                    blogger<!-- <img src="images/icon3.png" alt="Blogger" style="height:2.2rem; width:2.2rem; display:inline-block;"> -->
+                </a>
+                <a href="https://github.com/ma2uki" target="_blank" rel="noopener" title="Blogger">
+                    GitHub<!-- <img src="images/icon3.png" alt="Blogger" style="height:2.2rem; width:2.2rem; display:inline-block;"> -->
+                </a>
+            </p>
+            <p>
+                <span class="copyright"><small>&copy; <span id="year"></span> yuki All Rigths Reserved.</small></span>
+            </p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
