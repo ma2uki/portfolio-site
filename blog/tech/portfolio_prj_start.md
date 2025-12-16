@@ -41,6 +41,18 @@ SNS は 10 年弱続けていたが、堅苦しさを感じて、自分だけの
 
 - 現在の作業フォルダ(assets/image)にデスクトップからスクショを移動させる。  
   `mv ~/desktop/dir.png . `
+- index.htmlをSafariで開いてテストする。  
+`open -a "Safari" index.html `
+
+- Finderで隠しファイル（.gitとか）を表示させる。  
+`defaults write com.apple.finder AppleShowAllFiles -bool true`　で設定を変えてからの　　`killall Finder`　　でFinderを再起動。
+
+## GitHub 
+- ミスったからgit管理をリセットしたい。  
+`rm -rf .git `　からの　`git init` 
+- git push でアップロードできる容量を増やしたい。画像をpushしようとしたらエラーが出る。
+  
+  `git config --global http.postBuffer 104857600`
 
 # 計画
 
@@ -111,7 +123,7 @@ Gemini を使って考えた。AI を使うと人と話すように、やり取�
 
 # 作業日誌
 
-## First Phase
+## First Phase　〜ポートフォリオメインページ作成〜
 
 ### 初日の振り返り
 
@@ -142,3 +154,6 @@ Gemini を使って考えた。AI を使うと人と話すように、やり取�
 - html,css,jsファイル作成。
 - SNSへのリンク、Xへのリンクはどうも安定しないみたい。。確かに429エラー（Too many request）でサムネイルが表示されない。Instagramはタイムラインの表示はできなくて、特定の投稿へのリンクならできるそう。それなら、スクショにリンクを貼る。2025年12月現在の話です。
 - ポートフォリオサイトの目的は、信頼性向上。個人のSNSだけだと、中々信頼しづらいなぁと思い、作り始めた。だからこだわるのは、文章。HTML。見た目は派手じゃなくていい。ということで、htmlをざざっとつくって、スタイルはAIに任せる予定。
+- 完成。AIもいい感じにCSSとJavaScriptを作ってくれた。
+
+## Second Phase　〜ブログページ作成〜
