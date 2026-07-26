@@ -1,3 +1,10 @@
+---
+title: "portfolio project"
+date: "2025-12-18"
+update:
+description: "自作ポートフォリオサイト開発の作業日誌です。"
+---
+
 # プロジェクト発足
 
 SNS は 10 年弱続けていたが、堅苦しさを感じて、自分だけのネット空間が欲しくなってきた。自分で自由気ままにアレンジ出来るものにしたい。この欲望を満たすのは、自分で一から作ることだなと思った。サイトを作るインタフェースはたくさんあるが、しっくりくるものがなかった。
@@ -13,19 +20,37 @@ SNS は 10 年弱続けていたが、堅苦しさを感じて、自分だけの
 - `command + shift + 5` 画面録画メニューを開く。
 - `command + control + esc` 画面収録を止める。
 - `command + shift + 3` 画面全体のスクリーンショット
-- `command + shift + 4` 画面一部分のスクリーンショット。
+- `command + cont+ shift + 4` 画面一部分のスクリーンショット。
 - `command + space` spotlight 検索。
+- `command + control + F` ウィンドウ最大化
 - `command + M` ウィンドウ最小化（DOCK にしまう）。
 - `control + ← or ⇨` デスクトップ切り替え。
+- `cntrl + K` カタカナに変換（Lで英字、Jでひらがな）
+- `cont + space` キーボード入力切り替え。
+- `command + ctrl + Q` 画面ロック
+
+![alt text](image.png)
+
+- テキストとして貼り付け
+`command + shift + option`
+
+- スクショをAirdropでiPhoneに共有
+`command + cont + 4`　でデスクトップにできる。それを右クリック⇨共有でAirdrop。
+
+- `option + ¥` バックスラッシュ. 
 
 ## VScode の操作
 
 - サイドバーを閉じて、画面を広くする。　`command + B`
 - ファイルを開く。　`command + Shift + E` ⇨ `space`　 ⚠️Enter を押すとリネームになる。
 - .md（マークダウンファイル）をプレビュー表示する。　`command + Shift + V`
-- 画面を分割して、右に移動する。　`command + option + control + ¥` ⇨ ドラッグ&ドロップで右に移動。難しい 💦 これは二本指クリックで手動のほうがいいかも。
+- 画面を分割して、右に移動する。　~~`command + option + control + ¥` ⇨ ドラッグ&ドロップで右に移動。難しい 💦 これは二本指クリックで手動のほうがいいかも。~~.  
+  `command + cotrl + ⇨`
+
 - copilot のチャット画面を開く。　`command + control + I`, `option + command + B`
 - コマンドプロンプトから setting.json を開く。　`command + shift + P`　 ⇨ 「setting.json」で検索。「基本設定（ユーザーの〜）」をクリック。
+
+- タブの移動　`command + option + →　←`
 
 ## AI(Gemini,copilot)
 
@@ -34,7 +59,7 @@ SNS は 10 年弱続けていたが、堅苦しさを感じて、自分だけの
 
 ## マークダウン
 
-- コードを書く。` (```) ` ← トリプルクオートで前後を囲むってこと。
+- コードを書く。`(```)` ← トリプルクオートで前後を囲むってこと。
 - 画像の挿入。`<img src="../..//assets/image/dir.png" alt="手書き" width="500">` ルートの書き方はその都度調べてください。
 
 ## ターミナル
@@ -42,16 +67,29 @@ SNS は 10 年弱続けていたが、堅苦しさを感じて、自分だけの
 - 現在の作業フォルダ(assets/image)にデスクトップからスクショを移動させる。  
   `mv ~/desktop/dir.png . `
 - index.htmlをSafariで開いてテストする。  
-`open -a "Safari" index.html `
+  `open -a "Safari" index.html `
 
 - Finderで隠しファイル（.gitとか）を表示させる。  
-`defaults write com.apple.finder AppleShowAllFiles -bool true`　で設定を変えてからの　　`killall Finder`　　でFinderを再起動。
+  `defaults write com.apple.finder AppleShowAllFiles -bool true`　で設定を変えてからの　　`killall Finder`　　でFinderを再起動。
 
-## GitHub 
+- ファイル作成
+  `touch ⚪︎⚪︎⚪︎.txt`
+
+- リネーム
+  `mv 旧名 新名`
+
+- ファイル削除
+  `rm ファイル名`
+
+- `rm -r folder_name` フォルダの中身ごと削除
+
+- `rm -rf folder_name` 削除して良いかを確認してから削除
+## GitHub
+
 - ミスったからgit管理をリセットしたい。  
-`rm -rf .git `　からの　`git init` 
+  `rm -rf .git `　からの　`git init`
 - git push でアップロードできる容量を増やしたい。画像をpushしようとしたらエラーが出る。
-  
+
   `git config --global http.postBuffer 104857600`
 
 # 計画
@@ -61,7 +99,6 @@ SNS は 10 年弱続けていたが、堅苦しさを感じて、自分だけの
 - MacBookPro。中古で買ったばかり。人生初の MacBook。よろしければこちらの記事もご覧ください[（window から Mac への移行記録）](https://ma2uki.blogspot.com/2025/11/windowsmacgitmacbook-pro.html)。
 
 - エディタは VScode。プログラミングを始めてから愛用。仕事でも使っていて、せっかくなら他のエディタも使ってみたいとも思ったけど、なんだかんだでエディタは変えなかった。
-
   - 拡張機能で、pretter と ESlint（コードの自動整形）, LiveServer（ブラウザでの動作テスト）をインストール。
   - こちらも拡張機能で GitHub Copilot を導入。個人の無料枠。主に Agent モードで、Claude Haiku モデルを使う。個人的に使いやすい。
 
@@ -151,9 +188,14 @@ Gemini を使って考えた。AI を使うと人と話すように、やり取�
 - ~~iMovie~~ Instagram で動画編集。スマホの方が編集しやすかった。素材は PC で画面キャプチャ、iCloud でスマホに共有。Instagram アプリで編集した。
 
 ### ポートフォリオメイン画面作成
+
 - html,css,jsファイル作成。
 - SNSへのリンク、Xへのリンクはどうも安定しないみたい。。確かに429エラー（Too many request）でサムネイルが表示されない。Instagramはタイムラインの表示はできなくて、特定の投稿へのリンクならできるそう。それなら、スクショにリンクを貼る。2025年12月現在の話です。
 - ポートフォリオサイトの目的は、信頼性向上。個人のSNSだけだと、中々信頼しづらいなぁと思い、作り始めた。だからこだわるのは、文章。HTML。見た目は派手じゃなくていい。ということで、htmlをざざっとつくって、スタイルはAIに任せる予定。
 - 完成。AIもいい感じにCSSとJavaScriptを作ってくれた。
 
 ## Second Phase　〜ブログページ作成〜
+
+### 計画
+
+-

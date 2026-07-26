@@ -144,3 +144,156 @@ document.querySelectorAll('section').forEach(section => {
     section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(section);
 });
+
+// ブログカルーセル機能
+let blogCurrentIndex = 0;
+let blogTouchStartX = 0;
+let blogTouchEndX = 0;
+
+async function initBlogCarousel() {
+    try {
+        const response = await fetch('./data/index.json');
+        const data = await response.json();
+        
+        // articles 配列が存在するかチェック
+        const articles = data.articles || data;
+        if (!Array.isArray(articles)) {
+            console.log('No articles array found');
+            return;
+        }
+        
+        // 日付でソートして最新3件を取得
+        const sortedArticles = articles
+            .sort((a, b) => {
+                const dateA = new Date(a.update || a.date);
+                const dateB = new Date(b.update || b.date);
+                return dateB - dateA;
+            })
+            .slice(0, 3);
+        
+        if (sortedArticles.length === 0) {
+            console.log('No articles found');
+            return;
+        }
+        
+        const container = document.getElementById('blog-carousel');
+        const dotsContainer = document.getElementById('blog-carousel-dots');
+        
+        if (!container || !dotsContainer) {
+            console.log('Blog carousel containers not found');
+            return;
+        }
+        
+        // カルーセルアイテムを生成
+        sortedArticles.forEach((article, index) => {
+            const item = document.createElement('div');
+            item.className = 'carousel-item';
+            
+            const card = document.createElement('a');
+            card.href = article.path;
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+            card.style.display = 'block';
+            
+            const dateStr = new Date(article.update || article.date).toLocaleDateString('ja-JP');
+            const updateStr = article.update ? `更新: ${dateStr}` : `公開: ${dateStr}`;
+            
+            card.innerHTML = `
+                <div class="blog-card">
+                    <img src="${article.image}" alt="${article.title}" class="blog-card-image" onerror="this.src='./assets/image/placeholder.png'">
+                    <h3>${article.title}</h3>
+                    <div class="blog-card-meta">
+                        <div class="blog-card-date">
+                            <span class="label">${updateStr}</span>
+                        </div>
+                    </div>
+                    <p>${article.description}</p>
+                </div>
+            `;
+            
+            item.appendChild(card);
+            container.appendChild(item);
+            
+            // ドットを生成
+            const dot = document.createElement('span');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.dataset.index = index;
+            dot.addEventListener('click', () => showBlogSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+        
+        // カルーセル操作
+        const prevBtn = document.getElementById('blog-carousel-prev');
+        const nextBtn = document.getElementById('blog-carousel-next');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => prevBlogSlide());
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => nextBlogSlide());
+        }
+        
+        // スワイプ対応
+        container.addEventListener('touchstart', (e) => {
+            blogTouchStartX = e.touches[0].clientX;
+        }, false);
+        
+        container.addEventListener('touchend', (e) => {
+            blogTouchEndX = e.changedTouches[0].clientX;
+            handleBlogSwipe();
+        }, false);
+        
+    } catch (error) {
+        console.error('Error loading blog data:', error);
+    }
+}
+
+function showBlogSlide(index) {
+    const container = document.getElementById('blog-carousel');
+    const dots = document.querySelectorAll('#blog-carousel-dots .carousel-dot');
+    const items = container.querySelectorAll('.carousel-item');
+    
+    if (items.length === 0) return;
+    
+    if (index >= items.length) {
+        blogCurrentIndex = 0;
+    } else if (index < 0) {
+        blogCurrentIndex = items.length - 1;
+    } else {
+        blogCurrentIndex = index;
+    }
+    
+    const offset = -blogCurrentIndex * 100;
+    container.style.transform = `translateX(${offset}%)`;
+    
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[blogCurrentIndex]) {
+        dots[blogCurrentIndex].classList.add('active');
+    }
+}
+
+function nextBlogSlide() {
+    showBlogSlide(blogCurrentIndex + 1);
+}
+
+function prevBlogSlide() {
+    showBlogSlide(blogCurrentIndex - 1);
+}
+
+function handleBlogSwipe() {
+    const swipeThreshold = 50;
+    const diff = blogTouchStartX - blogTouchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            nextBlogSlide();
+        } else {
+            prevBlogSlide();
+        }
+    }
+}
+
+// ページ読み込み時にブログカルーセルを初期化
+document.addEventListener('DOMContentLoaded', () => {
+    initBlogCarousel();
+});
